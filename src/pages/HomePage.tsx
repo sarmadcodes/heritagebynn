@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, Star, Award, Scissors, Truck } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { products } from '../data/products';
+import zarizewar1 from "../assets/zarizewar1.jpg";
+import mastaaniharyali2 from "../assets/mastaaniharyali2.jpg"
+import barfiblush1 from "../assets/barfiblush1.jpg"
+
+
 
 export function HomePage() {
   const featuredProducts = products.filter(product => product.isFeatured);
@@ -74,91 +79,86 @@ export function HomePage() {
       </section>
 
       {/* Featured Collections */}
-<section className="py-12 sm:py-20 bg-white">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-8 sm:mb-16">
-      <h2 className="text-2xl sm:text-4xl font-serif text-gray-800 mb-2 sm:mb-4">Featured Collections</h2>
-      <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg px-2">
-        Discover our curated selection of exquisite bridal and formal wear
-      </p>
-    </div>
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-4xl font-serif text-gray-800 mb-2 sm:mb-4">
+              Featured Collections
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg px-2">
+              Discover our curated selection of exquisite bridal and formal wear
+            </p>
+          </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-12">
-      {/* Bridal Collection */}
-      <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer">
-        <img
-          src="src\assets\zarizewar1.jpg"
-          alt="Bridal Collection"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
-          <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Bridal Collection</h3>
-          <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Timeless elegance for your special day</p>
-          <Link
-            to="/shop?category=Bridal"
-            className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
-            onClick={() => {
-              // Optional: Scroll to top when navigating
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span>Shop Now</span>
-            <ChevronRight size={16} />
-          </Link>
-        </div>
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-6 sm:mb-12">
+            {/* Bridal Collection */}
+            <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer">
+              <img
+                src={zarizewar1}
+                alt="Bridal Collection"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
+                <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Bridal Collection</h3>
+                <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Timeless elegance for your special day</p>
+                <Link
+                  to="/shop?category=Bridal"
+                  className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                  <span>Shop Now</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
+            </div>
 
-      {/* Formal Wear */}
-      <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer">
-        <img
-          src="src\assets\barfiblush1.jpg"
-          alt="Formal Wear"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
-          <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Formal Wear</h3>
-          <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Sophisticated designs for every occasion</p>
-          <Link
-            to="/shop?category=Formal"
-            className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span>Shop Now</span>
-            <ChevronRight size={16} />
-          </Link>
-        </div>
-      </div>
+            {/* Formal Wear */}
+            <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer">
+              <img
+                src={barfiblush1}
+                alt="Formal Wear"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
+                <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Formal Wear</h3>
+                <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Sophisticated designs for every occasion</p>
+                <Link
+                  to="/shop?category=Formal"
+                  className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                  <span>Shop Now</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
+            </div>
 
-      {/* Party Wear */}
-      <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer sm:block">
-        <img
-          src="src\assets\mastaaniharyali2.jpg"
-          alt="Party Wear"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
-          <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Party Wear</h3>
-          <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Contemporary styles for modern celebrations</p>
-          <Link
-            to="/shop?category=Party Wear"
-            className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          >
-            <span>Shop Now</span>
-            <ChevronRight size={16} />
-          </Link>
+            {/* Party Wear */}
+            <div className="group relative overflow-hidden rounded-lg aspect-[16/9] sm:aspect-[4/5] cursor-pointer sm:block">
+              <img
+                src={mastaaniharyali2}
+                alt="Party Wear"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 text-white">
+                <h3 className="text-lg sm:text-2xl font-serif mb-1 sm:mb-2">Party Wear</h3>
+                <p className="mb-2 sm:mb-4 opacity-90 text-sm sm:text-base">Contemporary styles for modern celebrations</p>
+                <Link
+                  to="/shop?category=Party Wear"
+                  className="inline-flex items-center space-x-2 text-champagne-200 font-medium hover:text-white transition-colors text-sm sm:text-base"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                  <span>Shop Now</span>
+                  <ChevronRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Why Choose HeritageByNN */}
       <section className="py-20 bg-champagne-50">
