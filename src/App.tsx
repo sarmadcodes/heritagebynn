@@ -31,7 +31,7 @@ function App() {
     document.head.appendChild(link);
 
     // Update document title
-    document.title = 'HeritageByNN - Where Elegance Meets Forever';
+    document.title = 'HeritageByNN';
   }, []);
 
   return (
