@@ -91,13 +91,13 @@ export function ShopPage() {
         {/* Breadcrumb - Hidden on mobile for space */}
         <nav className="mb-4 hidden md:block">
           <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li><a href="/" className="hover:text-champagne-600">Home</a></li>
+            <li><a href="/" className="transition-colors" style={{ '--tw-hover-color': '#3E0309' } as any}>Home</a></li>
             <li>/</li>
             <li className="text-gray-800">Shop</li>
             {activeCategory !== 'All' && (
               <>
                 <li>/</li>
-                <li className="text-champagne-600">{activeCategory}</li>
+                <li style={{ color: '#3E0309' }}>{activeCategory}</li>
               </>
             )}
           </ol>
@@ -105,7 +105,7 @@ export function ShopPage() {
 
         {/* Page Header */}
         <div className="mb-6 text-center md:mb-8">
-          <h1 className="text-3xl font-serif text-gray-800 mb-4 md:text-5xl md:mb-6">
+          <h1 className="text-3xl font-serif mb-4 md:text-5xl md:mb-6" style={{ color: '#3E0309' }}>
             {activeCategory !== 'All' ? activeCategory : 'All Collections'}
           </h1>
           <p className="text-gray-600 text-base mb-6 px-2 md:text-lg md:mb-8 md:px-0">
@@ -120,9 +120,13 @@ export function ShopPage() {
                 onClick={() => handleCategoryChange(category)}
                 className={`text-lg font-medium pb-2 border-b-2 transition-colors whitespace-nowrap md:text-xl ${
                   activeCategory === category
-                    ? 'text-champagne-600 border-champagne-600'
-                    : 'text-gray-600 border-transparent hover:text-champagne-600 hover:border-champagne-300'
+                    ? 'border-b-2'
+                    : 'text-gray-600 border-transparent hover:opacity-80'
                 }`}
+                style={activeCategory === category 
+                  ? { color: '#3E0309', borderColor: '#3E0309' }
+                  : { '--tw-hover-color': '#3E0309', '--tw-hover-border-color': '#3E0309' } as any
+                }
               >
                 {category}
               </button>
@@ -149,7 +153,8 @@ export function ShopPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-white border border-gray-200 rounded-lg px-3 py-2 pr-8 text-sm w-full focus:outline-none focus:ring-2 focus:ring-champagne-300 md:w-auto md:px-4"
+                  className="appearance-none bg-white border border-gray-200 rounded-lg px-3 py-2 pr-8 text-sm w-full focus:outline-none focus:ring-2 md:w-auto md:px-4"
+                  style={{ '--tw-ring-color': '#3E0309' } as any}
                 >
                   <option value="featured">Featured</option>
                   <option value="newest">Newest</option>
@@ -166,9 +171,10 @@ export function ShopPage() {
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-l-lg transition-colors ${
                     viewMode === 'grid'
-                      ? 'bg-champagne-600 text-white'
+                      ? 'text-white'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
+                  style={viewMode === 'grid' ? { backgroundColor: '#3E0309' } : {}}
                 >
                   <Grid size={16} />
                 </button>
@@ -176,9 +182,10 @@ export function ShopPage() {
                   onClick={() => setViewMode('list')}
                   className={`p-2 rounded-r-lg transition-colors ${
                     viewMode === 'list'
-                      ? 'bg-champagne-600 text-white'
+                      ? 'text-white'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
+                  style={viewMode === 'list' ? { backgroundColor: '#3E0309' } : {}}
                 >
                   <List size={16} />
                 </button>
@@ -193,7 +200,8 @@ export function ShopPage() {
             <p className="text-gray-600 text-base mb-4 md:text-lg">No products found matching your criteria.</p>
             <button
               onClick={clearAllFilters}
-              className="text-champagne-600 hover:text-champagne-700 font-medium"
+              className="font-medium hover:opacity-80 transition-opacity"
+              style={{ color: '#3E0309' }}
             >
               Clear all filters
             </button>
