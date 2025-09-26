@@ -40,9 +40,9 @@ export function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-champagne-50">
+      <section className="relative py-20" style={{ backgroundColor: '#fdf2f8' }}>
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-serif text-gray-800 mb-4">Get In Touch</h1>
+          <h1 className="text-5xl font-serif mb-4" style={{ color: '#3E0309' }}>Get In Touch</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We'd love to hear from you. Send us a message or book an appointment for a personalized consultation.
           </p>
@@ -54,12 +54,12 @@ export function ContactPage() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl font-serif text-gray-800 mb-6">Visit Our Atelier</h2>
+              <h2 className="text-2xl font-serif mb-6" style={{ color: '#3E0309' }}>Visit Our Atelier</h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <MapPin size={24} className="text-champagne-600 mt-1" />
+                  <MapPin size={24} className="mt-1" style={{ color: '#3E0309' }} />
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Address</h3>
+                    <h3 className="font-semibold mb-1" style={{ color: '#3E0309' }}>Address</h3>
                     <p className="text-gray-600">
                       123 Fashion Dist<br />
                       Gulistan-e-jauhar,karachi<br />
@@ -69,31 +69,31 @@ export function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Phone size={24} className="text-champagne-600 mt-1" />
+                  <Phone size={24} className="mt-1" style={{ color: '#3E0309' }} />
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Phone</h3>
+                    <h3 className="font-semibold mb-1" style={{ color: '#3E0309' }}>Phone</h3>
                     <p className="text-gray-600">+92 3313103442</p>
                     <p className="text-sm text-gray-500">WhatsApp available</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Mail size={24} className="text-champagne-600 mt-1" />
+                  <Mail size={24} className="mt-1" style={{ color: '#3E0309' }} />
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Email</h3>
+                    <h3 className="font-semibold mb-1" style={{ color: '#3E0309' }}>Email</h3>
                     <p className="text-gray-600">info@heritagebynn.com</p>
                     <p className="text-sm text-gray-500">We reply within 24 hours</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <Clock size={24} className="text-champagne-600 mt-1" />
+                  <Clock size={24} className="mt-1" style={{ color: '#3E0309' }} />
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-1">Hours</h3>
+                    <h3 className="font-semibold mb-1" style={{ color: '#3E0309' }}>Hours</h3>
                     <div className="text-gray-600 text-sm space-y-1">
                       <p>Monday - Saturday: 10:00 AM - 8:00 PM</p>
                       <p>Sunday: 11:00 AM - 6:00 PM</p>
-                      <p className="text-champagne-600">By appointment only</p>
+                      <p style={{ color: '#3E0309' }}>By appointment only</p>
                     </div>
                   </div>
                 </div>
@@ -130,9 +130,10 @@ export function ContactPage() {
                   onClick={() => setActiveTab('contact')}
                   className={`py-3 px-6 font-medium text-sm transition-colors ${
                     activeTab === 'contact'
-                      ? 'border-b-2 border-champagne-600 text-champagne-600'
+                      ? 'border-b-2 text-white'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
+                  style={activeTab === 'contact' ? { borderColor: '#3E0309', color: '#3E0309' } : {}}
                 >
                   Send Message
                 </button>
@@ -140,9 +141,10 @@ export function ContactPage() {
                   onClick={() => setActiveTab('appointment')}
                   className={`py-3 px-6 font-medium text-sm transition-colors ${
                     activeTab === 'appointment'
-                      ? 'border-b-2 border-champagne-600 text-champagne-600'
+                      ? 'border-b-2 text-white'
                       : 'text-gray-500 hover:text-gray-700'
                   }`}
+                  style={activeTab === 'appointment' ? { borderColor: '#3E0309', color: '#3E0309' } : {}}
                 >
                   Book Appointment
                 </button>
@@ -161,7 +163,8 @@ export function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#3E0309' } as any}
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -176,7 +179,8 @@ export function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#3E0309' } as any}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -192,7 +196,8 @@ export function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#3E0309' } as any}
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -205,7 +210,8 @@ export function ContactPage() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#3E0309' } as any}
                     >
                       <option value="General Inquiry">General Inquiry</option>
                       <option value="Custom Order">Custom Order</option>
@@ -231,7 +237,8 @@ export function ContactPage() {
                         onChange={handleChange}
                         required={activeTab === 'appointment'}
                         min={new Date().toISOString().split('T')[0]}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                        style={{ '--tw-ring-color': '#3E0309' } as any}
                       />
                     </div>
 
@@ -244,7 +251,8 @@ export function ContactPage() {
                         value={formData.appointmentTime}
                         onChange={handleChange}
                         required={activeTab === 'appointment'}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                        style={{ '--tw-ring-color': '#3E0309' } as any}
                       >
                         <option value="">Select time</option>
                         <option value="10:00 AM">10:00 AM</option>
@@ -272,7 +280,8 @@ export function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-champagne-300"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2"
+                    style={{ '--tw-ring-color': '#3E0309' } as any}
                     placeholder={
                       activeTab === 'appointment'
                         ? "Please describe the type of outfit you're looking for, any specific requirements, and your event details..."
@@ -283,7 +292,8 @@ export function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-champagne-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-champagne-700 transition-colors flex items-center justify-center space-x-2"
+                  className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center space-x-2"
+                  style={{ backgroundColor: '#3E0309' }}
                 >
                   <Send size={20} />
                   <span>
@@ -304,7 +314,7 @@ export function ContactPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-serif mb-4" style={{ color: '#3E0309' }}>Frequently Asked Questions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Find answers to commonly asked questions about our services and process
             </p>
@@ -330,7 +340,7 @@ export function ContactPage() {
               }
             ].map((faq, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-800 mb-2">{faq.question}</h3>
+                <h3 className="font-semibold mb-2" style={{ color: '#3E0309' }}>{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
