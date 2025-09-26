@@ -35,13 +35,14 @@ export function CartPage() {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-md mx-auto">
             <ShoppingBag size={64} className="text-gray-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-serif text-gray-800 mb-4">Your cart is empty</h2>
+            <h2 className="text-2xl font-serif mb-4" style={{ color: '#3E0309' }}>Your cart is empty</h2>
             <p className="text-gray-600 mb-8">
               Discover our beautiful collections and add some items to your cart.
             </p>
             <Link
               to="/shop"
-              className="inline-flex items-center space-x-2 bg-champagne-600 text-white px-6 py-3 rounded-lg hover:bg-champagne-700 transition-colors"
+              className="inline-flex items-center space-x-2 text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: '#3E0309' }}
             >
               <span>Continue Shopping</span>
             </Link>
@@ -57,12 +58,13 @@ export function CartPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-serif text-gray-800 mb-2">Shopping Cart</h1>
+            <h1 className="text-3xl font-serif mb-2" style={{ color: '#3E0309' }}>Shopping Cart</h1>
             <p className="text-gray-600">{state.cart.length} items in your cart</p>
           </div>
           <Link
             to="/shop"
-            className="flex items-center space-x-2 text-champagne-600 hover:text-champagne-700 transition-colors"
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            style={{ color: '#3E0309' }}
           >
             <ArrowLeft size={20} />
             <span>Continue Shopping</span>
@@ -82,7 +84,7 @@ export function CartPage() {
                   />
                   
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
+                    <h3 className="font-medium mb-1" style={{ color: '#3E0309' }}>{item.name}</h3>
                     <p className="text-sm text-gray-600 mb-2">{item.category}</p>
                     
                     <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
@@ -109,7 +111,7 @@ export function CartPage() {
                       </div>
                       
                       <div className="text-right">
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold" style={{ color: '#3E0309' }}>
                           {formatPrice(item.price * item.quantity)}
                         </div>
                         {item.quantity > 1 && (
@@ -135,7 +137,7 @@ export function CartPage() {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg p-6 shadow-sm sticky top-24">
-              <h2 className="text-xl font-semibold text-gray-800 mb-6">Order Summary</h2>
+              <h2 className="text-xl font-semibold mb-6" style={{ color: '#3E0309' }}>Order Summary</h2>
               
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
@@ -158,14 +160,15 @@ export function CartPage() {
                 )}
                 <hr className="border-gray-200" />
                 <div className="flex justify-between text-lg font-semibold">
-                  <span className="text-gray-800">Total</span>
-                  <span className="text-gray-800">{formatPrice(total)}</span>
+                  <span style={{ color: '#3E0309' }}>Total</span>
+                  <span style={{ color: '#3E0309' }}>{formatPrice(total)}</span>
                 </div>
               </div>
 
               <Link
                 to="/checkout"
-                className="w-full bg-champagne-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-champagne-700 transition-colors text-center block mb-4"
+                className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity text-center block mb-4"
+                style={{ backgroundColor: '#3E0309' }}
               >
                 Proceed to Checkout
               </Link>
@@ -182,11 +185,11 @@ export function CartPage() {
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <div className="text-champagne-600 font-semibold">Free Returns</div>
+                    <div className="font-semibold" style={{ color: '#3E0309' }}>Free Returns</div>
                     <div className="text-xs text-gray-600">30 days</div>
                   </div>
                   <div>
-                    <div className="text-champagne-600 font-semibold">Custom Fit</div>
+                    <div className="font-semibold" style={{ color: '#3E0309' }}>Custom Fit</div>
                     <div className="text-xs text-gray-600">Available</div>
                   </div>
                 </div>
