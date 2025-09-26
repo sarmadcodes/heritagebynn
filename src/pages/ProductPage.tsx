@@ -20,8 +20,8 @@ export function ProductPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Product not found</h2>
-          <Link to="/shop" className="text-champagne-600 hover:text-champagne-700">
+          <h2 className="text-2xl font-semibold mb-4" style={{ color: '#3E0309' }}>Product not found</h2>
+          <Link to="/shop" className="hover:opacity-80 transition-opacity" style={{ color: '#3E0309' }}>
             Return to shop
           </Link>
         </div>
@@ -85,11 +85,11 @@ export function ProductPage() {
         {/* Breadcrumb */}
         <nav className="mb-8">
           <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li><Link to="/" className="hover:text-champagne-600">Home</Link></li>
+            <li><Link to="/" className="hover:opacity-80 transition-opacity" style={{ '--tw-hover-color': '#3E0309' } as any}>Home</Link></li>
             <li>/</li>
-            <li><Link to="/shop" className="hover:text-champagne-600">Shop</Link></li>
+            <li><Link to="/shop" className="hover:opacity-80 transition-opacity" style={{ '--tw-hover-color': '#3E0309' } as any}>Shop</Link></li>
             <li>/</li>
-            <li><Link to={`/shop?category=${product.category}`} className="hover:text-champagne-600">{product.category}</Link></li>
+            <li><Link to={`/shop?category=${product.category}`} className="hover:opacity-80 transition-opacity" style={{ '--tw-hover-color': '#3E0309' } as any}>{product.category}</Link></li>
             <li>/</li>
             <li className="text-gray-800">{product.name}</li>
           </ol>
@@ -131,7 +131,7 @@ export function ProductPage() {
                   </span>
                 )}
                 {product.originalPrice && (
-                  <span className="bg-champagne-600 text-white px-3 py-1 text-sm font-medium rounded">
+                  <span className="text-white px-3 py-1 text-sm font-medium rounded" style={{ backgroundColor: '#3E0309' }}>
                     SALE
                   </span>
                 )}
@@ -147,9 +147,10 @@ export function ProductPage() {
                     onClick={() => setSelectedImageIndex(index)}
                     className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 ${
                       selectedImageIndex === index
-                        ? 'border-champagne-600'
+                        ? 'border-current'
                         : 'border-gray-200'
                     }`}
+                    style={selectedImageIndex === index ? { borderColor: '#3E0309' } : {}}
                   >
                     <img
                       src={image}
@@ -166,7 +167,7 @@ export function ProductPage() {
           <div className="space-y-6">
             <div>
               <div className="flex items-center justify-between mb-2">
-                <span className="text-champagne-600 text-sm font-medium uppercase tracking-wider">
+                <span className="text-sm font-medium uppercase tracking-wider" style={{ color: '#3E0309' }}>
                   {product.category}
                 </span>
                 <button
@@ -181,7 +182,7 @@ export function ProductPage() {
                 </button>
               </div>
               
-              <h1 className="text-3xl font-serif text-gray-800 mb-4">{product.name}</h1>
+              <h1 className="text-3xl font-serif mb-4" style={{ color: '#3E0309' }}>{product.name}</h1>
               
               <div className="flex items-center space-x-3 mb-4">
                 <span className="text-2xl font-semibold text-gray-800">
@@ -213,7 +214,7 @@ export function ProductPage() {
 
             {/* Color Selection */}
             <div>
-              <h3 className="font-medium text-gray-800 mb-3">Color</h3>
+              <h3 className="font-medium mb-3" style={{ color: '#3E0309' }}>Color</h3>
               <div className="flex flex-wrap gap-2">
                 {product.colors.map(color => (
                   <button
@@ -221,9 +222,10 @@ export function ProductPage() {
                     onClick={() => setSelectedColor(color)}
                     className={`px-4 py-2 border rounded-lg text-sm transition-colors ${
                       selectedColor === color
-                        ? 'border-champagne-600 bg-champagne-50 text-champagne-700'
+                        ? 'border-current text-current'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
+                    style={selectedColor === color ? { borderColor: '#3E0309', color: '#3E0309', backgroundColor: '#fdf2f8' } : {}}
                   >
                     {color}
                   </button>
@@ -234,8 +236,8 @@ export function ProductPage() {
             {/* Size Selection */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-medium text-gray-800">Size</h3>
-                <button className="text-champagne-600 text-sm font-medium hover:text-champagne-700 flex items-center space-x-1">
+                <h3 className="font-medium" style={{ color: '#3E0309' }}>Size</h3>
+                <button className="text-sm font-medium hover:opacity-80 transition-opacity flex items-center space-x-1" style={{ color: '#3E0309' }}>
                   <Ruler size={14} />
                   <span>Size Guide</span>
                 </button>
@@ -247,9 +249,10 @@ export function ProductPage() {
                     onClick={() => setSelectedSize(size)}
                     className={`px-4 py-2 border rounded-lg text-sm transition-colors ${
                       selectedSize === size
-                        ? 'border-champagne-600 bg-champagne-50 text-champagne-700'
+                        ? 'border-current text-current'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
+                    style={selectedSize === size ? { borderColor: '#3E0309', color: '#3E0309', backgroundColor: '#fdf2f8' } : {}}
                   >
                     {size}
                   </button>
@@ -259,7 +262,7 @@ export function ProductPage() {
 
             {/* Quantity */}
             <div>
-              <h3 className="font-medium text-gray-800 mb-3">Quantity</h3>
+              <h3 className="font-medium mb-3" style={{ color: '#3E0309' }}>Quantity</h3>
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -281,13 +284,14 @@ export function ProductPage() {
             <div className="space-y-4">
               <button
                 onClick={handleAddToCart}
-                className="w-full bg-champagne-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-champagne-700 transition-colors flex items-center justify-center space-x-2"
+                className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity flex items-center justify-center space-x-2"
+                style={{ backgroundColor: '#3E0309' }}
               >
                 <ShoppingBag size={20} />
                 <span>Add to Cart</span>
               </button>
               
-              <button className="w-full border-2 border-champagne-600 text-champagne-600 py-3 px-6 rounded-lg font-medium hover:bg-champagne-50 transition-colors">
+              <button className="w-full border-2 py-3 px-6 rounded-lg font-medium hover:bg-opacity-5 transition-colors" style={{ borderColor: '#3E0309', color: '#3E0309' }}>
                 Buy Now
               </button>
             </div>
@@ -295,15 +299,15 @@ export function ProductPage() {
             {/* Features */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
               <div className="text-center">
-                <Truck size={24} className="text-champagne-600 mx-auto mb-2" />
+                <Truck size={24} className="mx-auto mb-2" style={{ color: '#3E0309' }} />
                 <span className="text-sm text-gray-600">Free Shipping</span>
               </div>
               <div className="text-center">
-                <RotateCcw size={24} className="text-champagne-600 mx-auto mb-2" />
+                <RotateCcw size={24} className="mx-auto mb-2" style={{ color: '#3E0309' }} />
                 <span className="text-sm text-gray-600">Easy Returns</span>
               </div>
               <div className="text-center">
-                <Shield size={24} className="text-champagne-600 mx-auto mb-2" />
+                <Shield size={24} className="mx-auto mb-2" style={{ color: '#3E0309' }} />
                 <span className="text-sm text-gray-600">Secure Payment</span>
               </div>
             </div>
@@ -320,9 +324,10 @@ export function ProductPage() {
                   onClick={() => setActiveTab(tab)}
                   className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors capitalize ${
                     activeTab === tab
-                      ? 'border-champagne-600 text-champagne-600'
+                      ? 'border-current text-current'
                       : 'border-transparent text-gray-500 hover:text-gray-700'
                   }`}
+                  style={activeTab === tab ? { borderColor: '#3E0309', color: '#3E0309' } : {}}
                 >
                   {tab}
                 </button>
@@ -333,22 +338,22 @@ export function ProductPage() {
           <div className="prose max-w-none">
             {activeTab === 'details' && (
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">Product Details</h3>
+                <h3 className="text-lg font-semibold" style={{ color: '#3E0309' }}>Product Details</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-gray-800 mb-2">Fabric & Materials</h4>
+                    <h4 className="font-medium mb-2" style={{ color: '#3E0309' }}>Fabric & Materials</h4>
                     <p className="text-gray-600">{product.fabric}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 mb-2">Embroidery Work</h4>
+                    <h4 className="font-medium mb-2" style={{ color: '#3E0309' }}>Embroidery Work</h4>
                     <p className="text-gray-600">{product.embroidery}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 mb-2">Occasion</h4>
+                    <h4 className="font-medium mb-2" style={{ color: '#3E0309' }}>Occasion</h4>
                     <p className="text-gray-600">{product.occasion}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 mb-2">Available Colors</h4>
+                    <h4 className="font-medium mb-2" style={{ color: '#3E0309' }}>Available Colors</h4>
                     <p className="text-gray-600">{product.colors.join(', ')}</p>
                   </div>
                 </div>
@@ -357,10 +362,10 @@ export function ProductPage() {
 
             {activeTab === 'care' && (
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">Care Instructions</h3>
+                <h3 className="text-lg font-semibold" style={{ color: '#3E0309' }}>Care Instructions</h3>
                 <p className="text-gray-600">{product.careInstructions}</p>
-                <div className="bg-champagne-50 p-4 rounded-lg">
-                  <h4 className="font-medium text-gray-800 mb-2">Additional Care Tips</h4>
+                <div className="p-4 rounded-lg" style={{ backgroundColor: '#fdf2f8' }}>
+                  <h4 className="font-medium mb-2" style={{ color: '#3E0309' }}>Additional Care Tips</h4>
                   <ul className="space-y-1 text-gray-600 text-sm">
                     <li>• Store in a cool, dry place away from direct sunlight</li>
                     <li>• Use padded hangers to maintain shape</li>
@@ -373,7 +378,7 @@ export function ProductPage() {
 
             {activeTab === 'shipping' && (
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-800">Shipping Information</h3>
+                <h3 className="text-lg font-semibold" style={{ color: '#3E0309' }}>Shipping Information</h3>
                 <div className="space-y-3 text-gray-600">
                   <p><strong>Free shipping</strong> on orders above ₹50,000</p>
                   <p><strong>Standard delivery:</strong> 5-7 business days</p>
@@ -385,7 +390,7 @@ export function ProductPage() {
 
             {activeTab === 'reviews' && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-800">Customer Reviews</h3>
+                <h3 className="text-lg font-semibold" style={{ color: '#3E0309' }}>Customer Reviews</h3>
                 <div className="space-y-4">
                   {[1, 2, 3].map(review => (
                     <div key={review} className="border-b border-gray-100 pb-4">
@@ -395,7 +400,7 @@ export function ProductPage() {
                             <Star key={i} size={14} className="text-yellow-400 fill-current" />
                           ))}
                         </div>
-                        <span className="font-medium text-gray-800">Amazing quality!</span>
+                        <span className="font-medium" style={{ color: '#3E0309' }}>Amazing quality!</span>
                       </div>
                       <p className="text-gray-600 text-sm">
                         Absolutely stunning piece. The craftsmanship is exceptional and the fit is perfect. 
@@ -415,7 +420,7 @@ export function ProductPage() {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-3xl font-serif text-gray-800 mb-8 text-center">You May Also Like</h2>
+            <h2 className="text-3xl font-serif mb-8 text-center" style={{ color: '#3E0309' }}>You May Also Like</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedProducts.map(product => (
                 <ProductCard key={product.id} product={product} />
