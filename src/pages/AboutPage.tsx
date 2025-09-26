@@ -4,10 +4,10 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-champagne-50">
+      <section className="relative py-20" style={{ backgroundColor: '#fdf2f8' }}>
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-serif text-gray-800 mb-6">Our Heritage Story</h1>
+            <h1 className="text-5xl font-serif mb-6" style={{ color: '#3E0309' }}>Our Heritage Story</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               For over a decade, HeritageByNN has been crafting timeless bridal elegance, 
               blending traditional techniques with contemporary design to create unforgettable moments.
@@ -28,7 +28,7 @@ export function AboutPage() {
               />
             </div>
             <div>
-              <h2 className="text-3xl font-serif text-gray-800 mb-6">Where Elegance Meets Forever</h2>
+              <h2 className="text-3xl font-serif mb-6" style={{ color: '#3E0309' }}>Where Elegance Meets Forever</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   Founded with a passion for preserving traditional craftsmanship while embracing modern aesthetics, 
@@ -50,10 +50,10 @@ export function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-champagne-50">
+      <section className="py-20" style={{ backgroundColor: '#fdf2f8' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-gray-800 mb-4">Our Values</h2>
+            <h2 className="text-4xl font-serif mb-4" style={{ color: '#3E0309' }}>Our Values</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               The principles that guide everything we do
             </p>
@@ -61,40 +61,40 @@ export function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-champagne-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 text-white rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#3E0309' }}>
                 <Award size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Excellence</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: '#3E0309' }}>Excellence</h3>
               <p className="text-gray-600">
                 Uncompromising quality in every stitch, every detail, every creation
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-champagne-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 text-white rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#3E0309' }}>
                 <Heart size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Heritage</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: '#3E0309' }}>Heritage</h3>
               <p className="text-gray-600">
                 Preserving traditional craftsmanship while embracing modern innovation
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-champagne-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 text-white rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#3E0309' }}>
                 <Users size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Personalization</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: '#3E0309' }}>Personalization</h3>
               <p className="text-gray-600">
                 Every bride is unique, and her dress should reflect her individual story
               </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-champagne-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 text-white rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#3E0309' }}>
                 <Globe size={28} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sustainability</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: '#3E0309' }}>Sustainability</h3>
               <p className="text-gray-600">
                 Ethical practices and sustainable materials for a better tomorrow
               </p>
@@ -108,7 +108,7 @@ export function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-serif text-gray-800 mb-6">Artisan Craftsmanship</h2>
+              <h2 className="text-3xl font-serif mb-6" style={{ color: '#3E0309' }}>Artisan Craftsmanship</h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   Our atelier is home to master craftsmen who have dedicated their lives to perfecting 
@@ -124,19 +124,19 @@ export function AboutPage() {
 
               <div className="mt-8 grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-champagne-600 mb-2">500+</div>
+                  <div className="text-2xl font-bold mb-2" style={{ color: '#3E0309' }}>500+</div>
                   <div className="text-sm text-gray-600">Hours per piece</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-champagne-600 mb-2">50+</div>
+                  <div className="text-2xl font-bold mb-2" style={{ color: '#3E0309' }}>50+</div>
                   <div className="text-sm text-gray-600">Skilled artisans</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-champagne-600 mb-2">1000+</div>
+                  <div className="text-2xl font-bold mb-2" style={{ color: '#3E0309' }}>1000+</div>
                   <div className="text-sm text-gray-600">Happy brides</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-champagne-600 mb-2">12+</div>
+                  <div className="text-2xl font-bold mb-2" style={{ color: '#3E0309' }}>12+</div>
                   <div className="text-sm text-gray-600">Years of excellence</div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export function AboutPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-gray-800 mb-4">Behind the Scenes</h2>
+            <h2 className="text-4xl font-serif mb-4" style={{ color: '#3E0309' }}>Behind the Scenes</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               A glimpse into our atelier where magic happens
             </p>
@@ -169,7 +169,7 @@ export function AboutPage() {
                 alt="Design Process"
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Design Process</h3>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Design Process</h3>
               <p className="text-gray-600">
                 From initial sketches to final fittings, every design is carefully curated
               </p>
@@ -181,7 +181,7 @@ export function AboutPage() {
                 alt="Hand Embroidery"
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Hand Embroidery</h3>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Hand Embroidery</h3>
               <p className="text-gray-600">
                 Intricate Zardozi and thread work that brings each piece to life
               </p>
@@ -193,7 +193,7 @@ export function AboutPage() {
                 alt="Quality Check"
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Quality Assurance</h3>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Quality Assurance</h3>
               <p className="text-gray-600">
                 Multiple quality checks ensure perfection in every garment
               </p>
@@ -206,7 +206,7 @@ export function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-gray-800 mb-4">Meet Our Team</h2>
+            <h2 className="text-4xl font-serif mb-4" style={{ color: '#3E0309' }}>Meet Our Team</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               The passionate individuals behind HeritageByNN
             </p>
@@ -219,8 +219,8 @@ export function AboutPage() {
                 alt="Founder"
                 className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Nisha Narayan</h3>
-              <p className="text-champagne-600 font-medium mb-2">Founder & Creative Director</p>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Nisha Narayan</h3>
+              <p className="font-medium mb-2" style={{ color: '#3E0309' }}>Founder & Creative Director</p>
               <p className="text-gray-600 text-sm">
                 With over 15 years in luxury fashion, Nisha brings vision and passion to every creation.
               </p>
@@ -232,8 +232,8 @@ export function AboutPage() {
                 alt="Head Designer"
                 className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Priya Sharma</h3>
-              <p className="text-champagne-600 font-medium mb-2">Head Designer</p>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Priya Sharma</h3>
+              <p className="font-medium mb-2" style={{ color: '#3E0309' }}>Head Designer</p>
               <p className="text-gray-600 text-sm">
                 Priya's innovative designs blend traditional techniques with contemporary aesthetics.
               </p>
@@ -245,8 +245,8 @@ export function AboutPage() {
                 alt="Master Craftsman"
                 className="w-32 h-32 object-cover rounded-full mx-auto mb-4"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Rajesh Kumar</h3>
-              <p className="text-champagne-600 font-medium mb-2">Master Craftsman</p>
+              <h3 className="text-xl font-semibold mb-2" style={{ color: '#3E0309' }}>Rajesh Kumar</h3>
+              <p className="font-medium mb-2" style={{ color: '#3E0309' }}>Master Craftsman</p>
               <p className="text-gray-600 text-sm">
                 With 25+ years of experience, Rajesh leads our team of skilled artisans.
               </p>
@@ -256,22 +256,24 @@ export function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-champagne-600">
+      <section className="py-20" style={{ backgroundColor: '#3E0309' }}>
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-serif text-white mb-4">Ready to Begin Your Journey?</h2>
-          <p className="text-champagne-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-rose-100 text-lg mb-8 max-w-2xl mx-auto">
             Let us create something extraordinary for your special day. Book a consultation with our design team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="px-8 py-3 bg-white text-champagne-600 font-medium rounded-lg hover:bg-champagne-50 transition-colors"
+              className="px-8 py-3 bg-white font-medium rounded-lg hover:opacity-90 transition-opacity"
+              style={{ color: '#3E0309' }}
             >
               Book Appointment
             </a>
             <a
               href="/shop"
-              className="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-champagne-600 transition-colors"
+              className="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white transition-colors rounded-lg group"
+              style={{ '--tw-hover-color': '#3E0309' } as any}
             >
               Explore Collection
             </a>
