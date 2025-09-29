@@ -1,19 +1,54 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Search, Heart, ShoppingBag, Menu, X, User } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
+import { products } from '../data/products';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { state, dispatch } = useApp();
   const location = useLocation();
+  const navigate = useNavigate();
   
   const cartItemsCount = state.cart.reduce((total, item) => total + item.quantity, 0);
   const wishlistCount = state.wishlist.length;
 
+  // Filter products based on search query
+  const searchResults = useMemo(() => {
+    if (!state.searchQuery.trim()) return [];
+    
+    const query = state.searchQuery.toLowerCase();
+    return products.filter(product => 
+      product.name.toLowerCase().includes(query) ||
+      product.description.toLowerCase().includes(query) ||
+      product.category.toLowerCase().includes(query) ||
+      product.occasion.toLowerCase().includes(query) ||
+      product.fabric.toLowerCase().includes(query)
+    ).slice(0, 5); // Limit to 5 results
+  }, [state.searchQuery]);
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value });
+  };
+
+  const handleSearchSubmit = () => {
+    if (state.searchQuery.trim()) {
+      navigate('/shop');
+      setIsSearchOpen(false);
+    }
+  };
+
+  const handleProductClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+    setIsSearchOpen(false);
+    dispatch({ type: 'SET_SEARCH_QUERY', payload: '' });
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
   };
 
   const isActiveLink = (path: string) => location.pathname === path;
@@ -45,6 +80,29 @@ export function Header() {
         .hover-underline:hover::after {
           left: 0;
         }
+
+        .search-results-scroll {
+          max-height: 400px;
+          overflow-y: auto;
+        }
+
+        .search-results-scroll::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .search-results-scroll::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 3px;
+        }
+
+        .search-results-scroll::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 3px;
+        }
+
+        .search-results-scroll::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
       `}</style>
       {/* Top Banner */}
       <div className="bg-white/10 text-white text-center py-2 text-xs sm:text-sm">
@@ -73,15 +131,72 @@ export function Header() {
               </button>
               
               {isSearchOpen && (
-                <div className="absolute left-0 top-full mt-2 w-64 bg-white rounded-lg shadow-lg border p-4 z-50">
-                  <input
-                    type="text"
-                    placeholder="Search for dresses..."
-                    value={state.searchQuery}
-                    onChange={handleSearch}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-sm"
-                    autoFocus
-                  />
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50" onClick={() => setIsSearchOpen(false)}>
+                  <div className="absolute left-4 right-4 top-24 bg-white rounded-lg shadow-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                    <div className="p-4 border-b border-gray-200">
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="text"
+                          placeholder="Search for dresses..."
+                          value={state.searchQuery}
+                          onChange={handleSearch}
+                          onKeyPress={handleKeyPress}
+                          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900 text-sm"
+                          autoFocus
+                        />
+                        <button
+                          onClick={handleSearchSubmit}
+                          className="px-4 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors"
+                        >
+                          <Search size={18} />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    {/* Mobile Search Results */}
+                    {searchResults.length > 0 && (
+                      <div className="search-results-scroll">
+                        {searchResults.map((product) => (
+                          <div
+                            key={product.id}
+                            onClick={() => handleProductClick(product.id)}
+                            className="flex items-center space-x-3 p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors"
+                          >
+                            <img
+                              src={product.images[0]}
+                              alt={product.name}
+                              className="w-16 h-16 object-cover rounded"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-gray-900 text-sm truncate">{product.name}</h4>
+                              <p className="text-xs text-gray-500">{product.category}</p>
+                              <p className="text-sm font-semibold text-red-900 mt-1">
+                                Rs {product.price.toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                        <button
+                          onClick={handleSearchSubmit}
+                          className="w-full p-3 text-center text-sm text-red-900 hover:bg-gray-50 font-medium"
+                        >
+                          View all results in shop →
+                        </button>
+                      </div>
+                    )}
+                    
+                    {state.searchQuery && searchResults.length === 0 && (
+                      <div className="p-4 text-center text-gray-500 text-sm">
+                        No products found. Try a different search term.
+                      </div>
+                    )}
+                    
+                    {!state.searchQuery && (
+                      <div className="p-4 text-center text-gray-500 text-sm">
+                        Start typing to search for products
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
@@ -159,16 +274,74 @@ export function Header() {
               </button>
               
               {isSearchOpen && (
-                <div className="absolute right-0 top-full mt-2 w-64 sm:w-80 bg-white rounded-lg shadow-lg border p-4 z-50">
-                  <input
-                    type="text"
-                    placeholder="Search for dresses..."
-                    value={state.searchQuery}
-                    onChange={handleSearch}
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-sm"
-                    autoFocus
-                  />
-                </div>
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setIsSearchOpen(false)}></div>
+                  <div className="absolute right-0 top-full mt-2 w-96 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden z-50">
+                    <div className="p-4 border-b border-gray-200">
+                      <div className="flex items-center space-x-2">
+                        <input
+                          type="text"
+                          placeholder="Search for dresses..."
+                          value={state.searchQuery}
+                          onChange={handleSearch}
+                          onKeyPress={handleKeyPress}
+                          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900 text-sm"
+                          autoFocus
+                        />
+                        <button
+                          onClick={handleSearchSubmit}
+                          className="px-4 py-2 bg-red-900 text-white rounded-lg hover:bg-red-800 transition-colors flex-shrink-0"
+                        >
+                          <Search size={18} />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    {/* Desktop Search Results */}
+                    {searchResults.length > 0 && (
+                      <div className="search-results-scroll">
+                        {searchResults.map((product) => (
+                          <div
+                            key={product.id}
+                            onClick={() => handleProductClick(product.id)}
+                            className="flex items-center space-x-4 p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors"
+                          >
+                            <img
+                              src={product.images[0]}
+                              alt={product.name}
+                              className="w-20 h-20 object-cover rounded"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-gray-900 truncate">{product.name}</h4>
+                              <p className="text-sm text-gray-500 mt-1">{product.category} • {product.occasion}</p>
+                              <p className="text-lg font-semibold text-red-900 mt-1">
+                                Rs {product.price.toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                        <button
+                          onClick={handleSearchSubmit}
+                          className="w-full p-4 text-center text-sm text-red-900 hover:bg-gray-50 font-medium"
+                        >
+                          View all results in shop →
+                        </button>
+                      </div>
+                    )}
+                    
+                    {state.searchQuery && searchResults.length === 0 && (
+                      <div className="p-6 text-center text-gray-500">
+                        No products found. Try a different search term.
+                      </div>
+                    )}
+                    
+                    {!state.searchQuery && (
+                      <div className="p-6 text-center text-gray-500 text-sm">
+                        Start typing to search for products
+                      </div>
+                    )}
+                  </div>
+                </>
               )}
             </div>
 
