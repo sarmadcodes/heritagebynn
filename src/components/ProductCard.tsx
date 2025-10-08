@@ -11,11 +11,19 @@ interface ProductCardProps {
 
 export function ProductCard({ product, variant = 'default' }: ProductCardProps) {
   const { state, dispatch } = useApp();
+<<<<<<< HEAD
   const isWishlisted = state.wishlist.includes(product._id);
 
   const handleWishlistToggle = (e: React.MouseEvent) => {
     e.preventDefault();
     dispatch({ type: 'TOGGLE_WISHLIST', payload: product._id });
+=======
+  const isWishlisted = state.wishlist.includes(product.id);
+
+  const handleWishlistToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch({ type: 'TOGGLE_WISHLIST', payload: product.id });
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   };
 
   const formatPrice = (price: number) => {
@@ -29,6 +37,7 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
   return (
     <div className="group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
       {/* Image Container */}
+<<<<<<< HEAD
       <div className={`relative ${variant === 'compact' ? 'w-24 flex-shrink-0' : 'aspect-[3/4]'} overflow-hidden`}>
         <Link to={`/product/${product._id}`}>
           {product.images && product.images.length > 0 ? (
@@ -52,6 +61,15 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
               <span className="text-gray-500">No Image</span>
             </div>
           )}
+=======
+      <div className="relative aspect-[3/4] overflow-hidden">
+        <Link to={`/product/${product.id}`}>
+          <img
+            src={product.images[0]}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         </Link>
         
         {/* Badges */}
@@ -81,7 +99,11 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
             <Heart size={16} fill={isWishlisted ? 'currentColor' : 'none'} />
           </button>
           <Link
+<<<<<<< HEAD
             to={`/product/${product._id}`}
+=======
+            to={`/product/${product.id}`}
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
             className="p-2 rounded-full bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-white hover:text-champagne-600 transition-colors"
           >
             <Eye size={16} />
@@ -91,7 +113,11 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
         {/* Quick Add to Cart */}
         <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
           <Link
+<<<<<<< HEAD
             to={`/product/${product._id}`}
+=======
+            to={`/product/${product.id}`}
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
             className="w-full bg-white/90 backdrop-blur-sm text-gray-800 py-2 px-4 rounded-lg font-medium text-sm hover:bg-white transition-colors flex items-center justify-center space-x-2"
           >
             <ShoppingBag size={16} />
@@ -101,14 +127,22 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
       </div>
 
       {/* Product Info */}
+<<<<<<< HEAD
       <div className={`p-4 ${variant === 'compact' ? 'flex-1' : ''}`}>
+=======
+      <div className="p-4">
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         <div className="mb-2">
           <span className="text-champagne-600 text-xs font-medium uppercase tracking-wider">
             {product.category}
           </span>
         </div>
         
+<<<<<<< HEAD
         <Link to={`/product/${product._id}`}>
+=======
+        <Link to={`/product/${product.id}`}>
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
           <h3 className="font-medium text-gray-800 mb-2 hover:text-champagne-600 transition-colors">
             {product.name}
           </h3>

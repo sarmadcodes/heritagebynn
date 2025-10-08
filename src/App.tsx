@@ -1,11 +1,17 @@
 import { useEffect } from 'react';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import { AppProvider, useApp } from './contexts/AppContext';
+=======
+import { BrowserRouter as Router, Routes, Route, useLocation,  } from 'react-router-dom';
+import { AppProvider } from './contexts/AppContext';
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 import { ModalProvider } from './contexts/ModalContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ShopPage } from './pages/ShopPage';
+<<<<<<< HEAD
 import ProductPage from './pages/ProductPage';
 import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
@@ -13,14 +19,27 @@ import { OrderSuccessPage } from './pages/OrderSuccessPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { ModalContainer } from './components/ModalContainer';
+=======
+import { ProductPage } from './pages/ProductPage';
+import { CartPage } from './pages/CartPage';
+import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
+import { ModalContainer } from './components/ModalContainer'; 
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 import { ReturnsModal } from './components/modals/ReturnsModal';
 import { SizeGuideModal } from './components/modals/SizeGuideModal';
 import { ShippingInfoModal } from './components/modals/ShippingInfoModal';
 import { CareInstructionsModal } from './components/modals/CareInstructionsModal';
 import AdminDashboard from './pages/AdminDashboard';
+<<<<<<< HEAD
 import { ManageOrdersPage } from './pages/ManageOrdersPage';
 import ManageProductsPage from './pages/ManageProductsPage';
 import { AdminLogin } from './pages/AdminLogin';
+=======
+import OrdersPage from './pages/OrdersPage';
+import ProductsPage from './pages/ProductsPage';
+import AdminLogin from './pages/AdminLogin';
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 
 // ScrollToTop component to handle scroll behavior on route changes
 function ScrollToTop() {
@@ -36,6 +55,7 @@ function ScrollToTop() {
 // ProtectedRoute component to secure admin routes
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const token = localStorage.getItem('token');
+<<<<<<< HEAD
   return token ? children : <Navigate to="/admin/login" replace />;
 }
 
@@ -77,6 +97,10 @@ function Notification() {
       </div>
     </div>
   );
+=======
+  // TODO: Remove bypass (return children) after testing login
+  return token ? children : children; // Bypass for testing, change to <Navigate to="/admin/login" /> after
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 }
 
 function App() {
@@ -104,23 +128,40 @@ function App() {
                 <Route path="/shop" element={<ShopPage />} />
                 <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/cart" element={<CartPage />} />
+<<<<<<< HEAD
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/order-success/:orderId" element={<OrderSuccessPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+=======
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                {/* Footer-linked Modals/Pages */}
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
                 <Route path="/returns" element={<ReturnsModal />} />
                 <Route path="/size-guide" element={<SizeGuideModal />} />
                 <Route path="/shipping" element={<ShippingInfoModal />} />
                 <Route path="/care" element={<CareInstructionsModal />} />
+<<<<<<< HEAD
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
                 <Route path="/admin/orders" element={<ProtectedRoute><ManageOrdersPage /></ProtectedRoute>} />
                 <Route path="/admin/products" element={<ProtectedRoute><ManageProductsPage /></ProtectedRoute>} />
+=======
+                {/* Admin Routes */}
+                <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+                <Route path="/admin/orders" element={<ProtectedRoute><OrdersPage /></ProtectedRoute>} />
+                <Route path="/admin/products" element={<ProtectedRoute><ProductsPage /></ProtectedRoute>} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               </Routes>
             </main>
             <Footer />
             <ModalContainer />
+<<<<<<< HEAD
             <Notification />
+=======
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
           </div>
         </Router>
       </ModalProvider>
@@ -128,4 +169,8 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972

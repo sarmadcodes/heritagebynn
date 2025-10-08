@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Truck, Clock, MapPin, ChevronRight } from "lucide-react";
@@ -105,4 +109,8 @@ export const ShippingInfoModal: React.FC = () => {
       </section>
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972

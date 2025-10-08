@@ -174,7 +174,11 @@ export function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
             {featuredProducts.map((product) => (
+<<<<<<< HEAD
               <div key={product._id} className="w-full">
+=======
+              <div key={product.id} className="w-full">
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
                 <ProductCard product={product} />
               </div>
             ))}
@@ -287,4 +291,8 @@ export function HomePage() {
       </section>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972

@@ -25,6 +25,7 @@ const modalConfigs = {
 } as const;
 
 export const ModalContainer = () => {
+<<<<<<< HEAD
   const { activeModal, closeModal, notification } = useModal();
 
   // Handle standard modals
@@ -69,3 +70,19 @@ export const ModalContainer = () => {
 
   return null;
 };
+=======
+  const { activeModal, closeModal } = useModal();
+
+  if (!activeModal || !modalConfigs[activeModal]) {
+    return null;
+  }
+
+  const { title, component: ModalComponent } = modalConfigs[activeModal];
+
+  return (
+    <Modal isOpen={true} onClose={closeModal} title={title}>
+      <ModalComponent />
+    </Modal>
+  );
+};
+>>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
