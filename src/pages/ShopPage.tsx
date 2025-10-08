@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Grid, List, ChevronDown } from 'lucide-react';
@@ -6,20 +5,10 @@ import { ProductCard } from '../components/ProductCard';
 import { useApp } from '../contexts/AppContext';
 import { Product } from '../contexts/AppContext';
 import api from '../utils/api';
-=======
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Grid, List, ChevronDown } from 'lucide-react';
-import { ProductCard } from '../components/ProductCard';
-import { products } from '../data/products';
-import { useApp } from '../contexts/AppContext';
-import { Product } from '../contexts/AppContext';
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 
 export function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { state } = useApp();
-<<<<<<< HEAD
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -45,34 +34,16 @@ export function ShopPage() {
   }, []);
 
   // Initialize category from URL
-=======
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [sortBy, setSortBy] = useState('featured');
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  // Categories for navigation
-  const categories = ['All', 'Bridal', 'Formal', 'Party Wear'];
-
-  // Initialize category from URL parameters on component mount
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   useEffect(() => {
     const categoryFromUrl = searchParams.get('category');
     if (categoryFromUrl && categories.includes(categoryFromUrl)) {
       setActiveCategory(categoryFromUrl);
     }
-<<<<<<< HEAD
   }, [searchParams, categories]);
 
   // Filter and sort when dependencies change
   useEffect(() => {
     let filtered = [...allProducts];
-=======
-  }, [searchParams]);
-
-  useEffect(() => {
-    let filtered = products;
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 
     // Apply category filter
     if (activeCategory !== 'All') {
@@ -108,22 +79,12 @@ export function ShopPage() {
         filtered.sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));
     }
 
-<<<<<<< HEAD
     console.log('Filtered products:', filtered); // Debug log
     setFilteredProducts(filtered);
   }, [activeCategory, sortBy, state.searchQuery, allProducts]);
 
   const handleCategoryChange = (category: string) => {
     setActiveCategory(category);
-=======
-    setFilteredProducts(filtered);
-  }, [activeCategory, sortBy, state.searchQuery]);
-
-  const handleCategoryChange = (category: string) => {
-    setActiveCategory(category);
-    
-    // Update URL params
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
     const params = new URLSearchParams(searchParams);
     if (category !== 'All') {
       params.set('category', category);
@@ -143,10 +104,6 @@ export function ShopPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-3 py-4 md:px-4 md:py-8">
-<<<<<<< HEAD
-=======
-        {/* Breadcrumb - Hidden on mobile for space */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         <nav className="mb-4 hidden md:block">
           <ol className="flex items-center space-x-2 text-sm text-gray-600">
             <li><a href="/" className="transition-colors" style={{ '--tw-hover-color': '#3E0309' } as any}>Home</a></li>
@@ -161,10 +118,6 @@ export function ShopPage() {
           </ol>
         </nav>
 
-<<<<<<< HEAD
-=======
-        {/* Page Header */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         <div className="mb-6 text-center md:mb-8">
           <h1 className="text-3xl font-serif mb-4 md:text-5xl md:mb-6" style={{ color: '#3E0309' }}>
             {activeCategory !== 'All' ? activeCategory : 'All Collections'}
@@ -173,10 +126,6 @@ export function ShopPage() {
             Discover our exquisite collection of {activeCategory !== 'All' ? activeCategory.toLowerCase() : 'luxury'} wear
           </p>
 
-<<<<<<< HEAD
-=======
-          {/* Category Navigation - Mobile optimized */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
           <div className="flex justify-center space-x-4 mb-6 overflow-x-auto md:space-x-8 md:mb-8">
             {categories.map(category => (
               <button
@@ -198,18 +147,10 @@ export function ShopPage() {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="bg-white rounded-lg p-3 mb-4 md:p-4 md:mb-6">
           <div className="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div className="text-sm text-gray-600">
               Showing {filteredProducts.length} of {allProducts.length} products
-=======
-        {/* Toolbar - Mobile optimized */}
-        <div className="bg-white rounded-lg p-3 mb-4 md:p-4 md:mb-6">
-          <div className="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between md:space-y-0">
-            <div className="text-sm text-gray-600">
-              Showing {filteredProducts.length} of {products.length} products
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               {state.searchQuery && (
                 <span> for "{state.searchQuery}"</span>
               )}
@@ -219,10 +160,6 @@ export function ShopPage() {
             </div>
 
             <div className="flex items-center justify-between md:space-x-4">
-<<<<<<< HEAD
-=======
-              {/* Sort Dropdown */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               <div className="relative flex-1 md:flex-none">
                 <select
                   value={sortBy}
@@ -239,10 +176,6 @@ export function ShopPage() {
                 <ChevronDown size={16} className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
               </div>
 
-<<<<<<< HEAD
-=======
-              {/* View Mode Toggle */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               <div className="flex border border-gray-200 rounded-lg ml-3 md:ml-0">
                 <button
                   onClick={() => setViewMode('grid')}
@@ -271,16 +204,11 @@ export function ShopPage() {
           </div>
         </div>
 
-<<<<<<< HEAD
         {allProducts.length === 0 ? (
           <div className="text-center py-12 px-4 md:py-16">
             <p className="text-gray-600 text-base mb-4 md:text-lg">Loading products...</p>
           </div>
         ) : filteredProducts.length === 0 ? (
-=======
-        {/* Products Grid - Mobile optimized */}
-        {filteredProducts.length === 0 ? (
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
           <div className="text-center py-12 px-4 md:py-16">
             <p className="text-gray-600 text-base mb-4 md:text-lg">No products found matching your criteria.</p>
             <button
@@ -299,11 +227,7 @@ export function ShopPage() {
           }`}>
             {filteredProducts.map((product) => (
               <ProductCard
-<<<<<<< HEAD
                 key={product._id}
-=======
-                key={product.id}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
                 product={product}
                 variant={viewMode === 'list' ? 'compact' : 'default'}
               />
@@ -313,8 +237,4 @@ export function ShopPage() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972

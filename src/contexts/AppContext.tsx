@@ -2,11 +2,7 @@ import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 
 // Types
 export interface Product {
-<<<<<<< HEAD
   _id: string;
-=======
-  id: string;
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   name: string;
   price: number;
   originalPrice?: number;
@@ -19,14 +15,9 @@ export interface Product {
   sizes: string[];
   description: string;
   careInstructions: string;
-<<<<<<< HEAD
   stock: number;
   isNew: boolean;
   isFeatured: boolean;
-=======
-  isNew?: boolean;
-  isFeatured?: boolean;
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 }
 
 export interface CartItem extends Product {
@@ -43,10 +34,7 @@ export interface AppState {
     show: boolean;
     message: string;
     type: 'success' | 'error' | 'info';
-<<<<<<< HEAD
     action?: { label: string; onClick: () => void };
-=======
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   } | null;
   filters: {
     category: string;
@@ -65,11 +53,7 @@ type AppAction =
   | { type: 'TOGGLE_WISHLIST'; payload: string }
   | { type: 'SET_FILTERS'; payload: Partial<AppState['filters']> }
   | { type: 'SET_SEARCH_QUERY'; payload: string }
-<<<<<<< HEAD
   | { type: 'SHOW_NOTIFICATION'; payload: { message: string; type: 'success' | 'error' | 'info'; action?: { label: string; onClick: () => void } } }
-=======
-  | { type: 'SHOW_NOTIFICATION'; payload: { message: string; type: 'success' | 'error' | 'info' } }
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   | { type: 'HIDE_NOTIFICATION' }
   | { type: 'CLEAR_CART' };
 
@@ -92,11 +76,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'ADD_TO_CART':
       const existingItem = state.cart.find(
-<<<<<<< HEAD
         item => item._id === action.payload._id &&
-=======
-        item => item.id === action.payload.id && 
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         item.selectedSize === action.payload.selectedSize &&
         item.selectedColor === action.payload.selectedColor
       );
@@ -105,11 +85,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
         return {
           ...state,
           cart: state.cart.map(item =>
-<<<<<<< HEAD
             item._id === action.payload._id &&
-=======
-            item.id === action.payload.id &&
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
             item.selectedSize === action.payload.selectedSize &&
             item.selectedColor === action.payload.selectedColor
               ? { ...item, quantity: item.quantity + action.payload.quantity }
@@ -117,17 +93,12 @@ function appReducer(state: AppState, action: AppAction): AppState {
           ),
           notification: {
             show: true,
-<<<<<<< HEAD
             message: `You've added ${action.payload.name} to cart!`,
             type: 'success',
             action: {
               label: 'Open Cart',
               onClick: () => window.location.href = '/cart'
             }
-=======
-            message: 'Item quantity updated in cart!',
-            type: 'success'
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
           }
         };
       }
@@ -137,28 +108,19 @@ function appReducer(state: AppState, action: AppAction): AppState {
         cart: [...state.cart, action.payload],
         notification: {
           show: true,
-<<<<<<< HEAD
           message: `You've added ${action.payload.name} to cart!`,
           type: 'success',
           action: {
             label: 'Open Cart',
             onClick: () => window.location.href = '/cart'
           }
-=======
-          message: 'Item added to cart successfully!',
-          type: 'success'
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         }
       };
 
     case 'REMOVE_FROM_CART':
       return {
         ...state,
-<<<<<<< HEAD
         cart: state.cart.filter(item => item._id !== action.payload),
-=======
-        cart: state.cart.filter(item => item.id !== action.payload),
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         notification: {
           show: true,
           message: 'Item removed from cart',
@@ -170,11 +132,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
       return {
         ...state,
         cart: state.cart.map(item =>
-<<<<<<< HEAD
           item._id === action.payload.id
-=======
-          item.id === action.payload.id
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
             ? { ...item, quantity: action.payload.quantity }
             : item
         )
@@ -212,12 +170,8 @@ function appReducer(state: AppState, action: AppAction): AppState {
         notification: {
           show: true,
           message: action.payload.message,
-<<<<<<< HEAD
           type: action.payload.type,
           action: action.payload.action
-=======
-          type: action.payload.type
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         }
       };
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft } from 'lucide-react';
@@ -21,14 +20,6 @@ export function CartPage() {
 
   // Debug cart state
   console.log('Cart state:', state.cart);
-=======
-import { Link } from 'react-router-dom';
-import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
-
-export function CartPage() {
-  const { state, dispatch } = useApp();
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -38,11 +29,7 @@ export function CartPage() {
     }).format(price);
   };
 
-<<<<<<< HEAD
-  const updateQuantity = (id: string, newQuantity: number, selectedSiz: string, selectedColor: string) => {
-=======
-  const updateQuantity = (id: string, newQuantity: number) => {
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
+  const updateQuantity = (id: string, newQuantity: number, selectedSize: string, selectedColor: string) => {
     if (newQuantity <= 0) {
       dispatch({ type: 'REMOVE_FROM_CART', payload: id });
     } else {
@@ -54,18 +41,14 @@ export function CartPage() {
     dispatch({ type: 'REMOVE_FROM_CART', payload: id });
   };
 
-<<<<<<< HEAD
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-=======
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   const subtotal = state.cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   const shipping = subtotal > 50000 ? 0 : 1500;
   const total = subtotal + shipping;
 
-<<<<<<< HEAD
   const handleCheckout = async () => {
     if (!formData.name || !formData.email || !formData.address || !formData.city || !formData.postalCode) {
       setError('Please fill in all customer details.');
@@ -114,8 +97,6 @@ export function CartPage() {
     }
   };
 
-=======
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
   if (state.cart.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 py-16">
@@ -142,10 +123,6 @@ export function CartPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-<<<<<<< HEAD
-=======
-        {/* Header */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-serif mb-2" style={{ color: '#3E0309' }}>Shopping Cart</h1>
@@ -162,7 +139,6 @@ export function CartPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<<<<<<< HEAD
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg p-6 shadow-sm mb-6">
               <h2 className="text-xl font-semibold mb-6" style={{ color: '#3E0309' }}>
@@ -320,75 +296,6 @@ export function CartPage() {
                   <p className="text-sm text-red-600">{error}</p>
                 </div>
               )}
-=======
-          {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
-            {state.cart.map((item) => (
-              <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="bg-white rounded-lg p-6 shadow-sm">
-                <div className="flex items-start space-x-4">
-                  <img
-                    src={item.images[0]}
-                    alt={item.name}
-                    className="w-24 h-32 object-cover rounded-lg"
-                  />
-                  
-                  <div className="flex-1">
-                    <h3 className="font-medium mb-1" style={{ color: '#3E0309' }}>{item.name}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{item.category}</p>
-                    
-                    <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
-                      <span>Color: {item.selectedColor}</span>
-                      <span>•</span>
-                      <span>Size: {item.selectedSize}</span>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <button
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="w-8 h-8 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-                        >
-                          <Minus size={14} />
-                        </button>
-                        <span className="w-8 text-center">{item.quantity}</span>
-                        <button
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="w-8 h-8 border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-                        >
-                          <Plus size={14} />
-                        </button>
-                      </div>
-                      
-                      <div className="text-right">
-                        <div className="font-semibold" style={{ color: '#3E0309' }}>
-                          {formatPrice(item.price * item.quantity)}
-                        </div>
-                        {item.quantity > 1 && (
-                          <div className="text-sm text-gray-500">
-                            {formatPrice(item.price)} each
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => removeFromCart(item.id)}
-                    className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-                  >
-                    <Trash2 size={18} />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Order Summary */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg p-6 shadow-sm sticky top-24">
-              <h2 className="text-xl font-semibold mb-6" style={{ color: '#3E0309' }}>Order Summary</h2>
-              
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Subtotal</span>
@@ -414,7 +321,6 @@ export function CartPage() {
                   <span style={{ color: '#3E0309' }}>{formatPrice(total)}</span>
                 </div>
               </div>
-<<<<<<< HEAD
               <button
                 onClick={handleCheckout}
                 disabled={isProcessing || !formData.name || !formData.email || !formData.address}
@@ -423,17 +329,6 @@ export function CartPage() {
               >
                 {isProcessing ? 'Processing...' : 'Place Order'}
               </button>
-=======
-
-              <Link
-                to="/checkout"
-                className="w-full text-white py-3 px-6 rounded-lg font-medium hover:opacity-90 transition-opacity text-center block mb-4"
-                style={{ backgroundColor: '#3E0309' }}
-              >
-                Proceed to Checkout
-              </Link>
-
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               <div className="text-center">
                 <p className="text-sm text-gray-600 mb-2">Secure checkout powered by SSL</p>
                 <div className="flex items-center justify-center space-x-2 text-xs text-gray-500">
@@ -441,11 +336,6 @@ export function CartPage() {
                   <span>COD • Bank Transfer</span>
                 </div>
               </div>
-<<<<<<< HEAD
-=======
-
-              {/* Trust Badges */}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
@@ -464,8 +354,4 @@ export function CartPage() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972

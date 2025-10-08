@@ -106,11 +106,7 @@ export function Header() {
       `}</style>
       {/* Top Banner */}
       <div className="bg-white/10 text-white text-center py-2 text-xs sm:text-sm">
-<<<<<<< HEAD
-        Free shipping on orders above Rs 5,000.
-=======
-        Free shipping on orders above Rs 8,000
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
+        Free shipping on orders above Rs 5,000
       </div>
 
       <div className="container mx-auto px-4">
@@ -162,13 +158,8 @@ export function Header() {
                       <div className="search-results-scroll">
                         {searchResults.map((product) => (
                           <div
-<<<<<<< HEAD
                             key={product._id}
                             onClick={() => handleProductClick(product._id)}
-=======
-                            key={product.id}
-                            onClick={() => handleProductClick(product.id)}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
                             className="flex items-center space-x-3 p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors"
                           >
                             <img
@@ -311,13 +302,8 @@ export function Header() {
                       <div className="search-results-scroll">
                         {searchResults.map((product) => (
                           <div
-<<<<<<< HEAD
                             key={product._id}
                             onClick={() => handleProductClick(product._id)}
-=======
-                            key={product.id}
-                            onClick={() => handleProductClick(product.id)}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
                             className="flex items-center space-x-4 p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors"
                           >
                             <img
@@ -438,8 +424,4 @@ export function Header() {
       </div>
     </header>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9f90e478c2b211e0bfeca9cae52073ffdd57d972
